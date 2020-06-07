@@ -241,9 +241,9 @@ temp = temp.reset_index().set_index(["State", "Updated On"])
 final_results = final_results.merge(temp, on= ["State", "Updated On"])
 #Renaming a few columns
 final_results = final_results.rename(columns={"ML": "Rt", "Low_90": "Low", "High_90": "High"})
-#Resetting an index
-final_results = final_results.reset_index(level=['Updated On'], inplace=False)
 print("Done!!!")
+
+
 print("\nIt took " + str(round((time.time()-start), 3)) + " secs.!")
 
 final_results.to_csv("rt_india.csv")
